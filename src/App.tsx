@@ -1,9 +1,16 @@
 import './App.css'
+import { AppHeader } from './components/app-header'
+import { AppSidebar } from './components/app-sidebar'
+import { Users } from './components/users-management'
 
 function App() {
   return (
     <>
-      <div className='text-2xl w-full'>hello back, vite</div>
+      <AppSidebar />
+      <div className='flex-auto flex flex-col'>
+        <AppHeader />
+        <Users />
+      </div>
     </>
   )
 }
