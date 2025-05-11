@@ -19,10 +19,6 @@ export const SwitchField = (props: SwitchProps) => {
 
   const ref = useRef<HTMLButtonElement | null>(null)
 
-  const handleClick = () => {
-    ref?.current?.click()
-  }
-
   return (
     <Controller
       name={name}
@@ -30,7 +26,6 @@ export const SwitchField = (props: SwitchProps) => {
       render={({ field }) => (
         <div
           className='flex items-center w-full justify-between p-4 rounded-md font-medium bg-primary-foreground outline outline-border cursor-pointer'
-          onClick={handleClick}
         >
           <div className='flex flex-col pointer-events-none'>
             <label
@@ -49,7 +44,7 @@ export const SwitchField = (props: SwitchProps) => {
             {...rest}
             id={id}
             ref={ref}
-            checked={field.value}
+            checked={!!field.value}
             onCheckedChange={field.onChange}
             onClick={(e) => e.stopPropagation()}
           />
