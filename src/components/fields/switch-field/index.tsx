@@ -24,20 +24,18 @@ export const SwitchField = (props: SwitchProps) => {
       name={name}
       control={control}
       render={({ field }) => (
-        <div
+        <label
+          htmlFor={id}
           className='flex items-center w-full justify-between p-4 rounded-md font-medium bg-primary-foreground outline outline-border cursor-pointer'
         >
           <div className='flex flex-col pointer-events-none'>
-            <label
+            <p
               className='text-card-foreground text-sm font-medium pointer-events-none'
-              htmlFor={id}
               onClick={(e) => e.stopPropagation()}
             >
               {label}
-            </label>
-            <span className='text-xs text-muted-foreground pointer-events-none'>
-              {description}
-            </span>
+            </p>
+            <span className='text-xs text-muted-foreground'>{description}</span>
           </div>
 
           <Switch
@@ -48,7 +46,7 @@ export const SwitchField = (props: SwitchProps) => {
             onCheckedChange={field.onChange}
             onClick={(e) => e.stopPropagation()}
           />
-        </div>
+        </label>
       )}
     />
   )
