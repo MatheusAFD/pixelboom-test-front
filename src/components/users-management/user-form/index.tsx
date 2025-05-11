@@ -14,8 +14,6 @@ import { queryClient } from '@/lib/tanstack-query'
 export const UserForm = (props: UserFormProps) => {
   const { onSubmit, initialValues } = props
 
-  console.log('initialValues', initialValues())
-
   const defaultFormValues = initialValues ?? {
     name: '',
     phone: '',

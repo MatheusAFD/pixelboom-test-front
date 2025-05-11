@@ -9,7 +9,9 @@ export const useUrlFilters = () => {
   const [search, setSearch] = useQueryState('search', { defaultValue: '' })
 
   const handlePageChange = (newPage: number) => {
-    setPage(newPage)
+    setPage(newPage, {
+      scroll: true,
+    })
   }
 
   const handleLimitChange = (newLimit: number) => {

@@ -21,7 +21,7 @@ export const UsersListFooter = (props: UsersListFooterProps) => {
   const { handleLimitChange } = useUrlFilters()
 
   return (
-    <footer className='flex items-center justify-between h-10 mt-5 '>
+    <footer className='flex gap-4 md:gap-0 flex-col md:flex-row items-center justify-between h-10 mt-5 '>
       <p className='text-sm text-muted-foreground'>
         {visibleItemsCount} de {total}
       </p>

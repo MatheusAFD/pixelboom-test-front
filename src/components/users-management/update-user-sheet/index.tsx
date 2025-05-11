@@ -75,7 +75,7 @@ export function UpdateUserSheet(
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent className='gap-0 p-10 min-w-[560px]'>
+      <SheetContent className='gap-0 p-4 md:p-10 min-w-full md:min-w-[560px]'>
         <SheetHeader className='flex flex-row justify-between items-center p-0 mb-10'>
           <SheetTitle className='text-2xl font-normal font-noto-serif'>
             Adicionar usuário

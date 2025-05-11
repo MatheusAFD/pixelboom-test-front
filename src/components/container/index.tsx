@@ -1,7 +1,7 @@
 import { cn } from '@/utils/tailwind-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-const containerVariants = cva(' flex flex-col mx-auto w-full', {
+const containerVariants = cva(' flex flex-col mx-auto w-full p-4 ', {
   variants: {
     size: {
       default: 'max-w-[1136px]',

@@ -47,7 +47,7 @@ export const UserCard = (props: UserCardProps) => {
   return (
     <div
       className={cn(
-        'flex justify-between items-center p-3 rounded-md outline outline-border',
+        'flex flex-col-reverse sm:flex-row items-end justify-end sm:justify-between flex-wrap md:items-center p-3 rounded-md outline outline-border',
         isLoading && 'animate-pulse'
       )}
     >
@@ -58,7 +58,7 @@ export const UserCard = (props: UserCardProps) => {
           </Avatar>
         </div>
 
-        <div className='text-xs text-muted-foreground'>
+        <div className=' text-xs text-muted-foreground'>
           <div className='flex gap-3'>
             <p className='text-sm text-foreground'>{user.name}</p>
             <p className='flex gap-1 items-center'>
