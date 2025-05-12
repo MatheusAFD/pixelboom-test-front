@@ -15,8 +15,6 @@ import {
   type UserFormProps,
 } from './types'
 
-import { queryClient } from '@/lib/tanstack-query'
-
 export const UserForm = (props: UserFormProps) => {
   const { onSubmit, initialValues } = props
 
@@ -46,14 +44,6 @@ export const UserForm = (props: UserFormProps) => {
 
   const onSubmitForm = async (data: RegisterUserFormData) => {
     await onSubmit(data)
-
-    await queryClient.invalidateQueries({
-      queryKey: ['get-users'],
-    })
-
-    await queryClient.invalidateQueries({
-      queryKey: ['get-dashboard-stats'],
-    })
   }
 
   return (

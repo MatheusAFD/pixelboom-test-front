@@ -17,6 +17,7 @@ import { UserForm } from '../user-form'
 
 import { getUser, updateUser } from '@/services/'
 import type { RegisterUserFormData } from '../user-form/types'
+import { queryClient } from '@/lib'
 
 interface UpdateUserSheetProps {
   isOpen?: boolean
@@ -44,6 +45,14 @@ export function UpdateUserSheet(
         return
       }
 
+      await queryClient.invalidateQueries({
+        queryKey: ['get-users'],
+      })
+
+      await queryClient.invalidateQueries({
+        queryKey: ['get-dashboard-stats'],
+      })
+
       onOpenChange?.(false)
       toast.success('Usuário editado com sucesso!')
     })
@@ -55,8 +64,6 @@ export function UpdateUserSheet(
     }
 
     const [error, user] = await getUser(userId as string)
-
-    console.log(user)
 
     const formattedUser = {
       ...user,

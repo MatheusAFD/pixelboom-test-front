@@ -19,6 +19,7 @@ import { useDisclosure } from '@/hooks/use-disclosure'
 
 import { createUser } from '@/services/'
 import type { RegisterUserFormData } from '../user-form/types'
+import { queryClient } from '@/lib'
 
 export function CreateUserSheet(props: PropsWithChildren) {
   const { children } = props
@@ -35,6 +36,14 @@ export function CreateUserSheet(props: PropsWithChildren) {
         toast.error('Erro ao criar usuário!')
         return
       }
+
+      await queryClient.invalidateQueries({
+        queryKey: ['get-users'],
+      })
+
+      await queryClient.invalidateQueries({
+        queryKey: ['get-dashboard-stats'],
+      })
 
       onOpenChange(false)
       toast.success('Usuário adicionado com sucesso!')
