@@ -56,6 +56,8 @@ export function UpdateUserSheet(
 
     const [error, user] = await getUser(userId as string)
 
+    console.log(user)
+
     const formattedUser = {
       ...user,
       isActive: user?.isActive,

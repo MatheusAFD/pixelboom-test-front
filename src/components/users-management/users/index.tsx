@@ -26,7 +26,7 @@ export const Users = () => {
   const { data: dashboardData, isLoading } = useGetDashboardStats()
 
   return (
-    <Container as='main' className='pb-30 pt-18 md:py-10 h-full mt-18'>
+    <Container as='main' className='pb-30 pt-10 md:py-10 h-full'>
       <section className='flex justify-between items-center'>
         <h1 className='font-noto-serif text-foreground text-[30px]'>
           Usuários

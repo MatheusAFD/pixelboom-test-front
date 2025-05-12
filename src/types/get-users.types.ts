@@ -17,6 +17,7 @@ export interface User {
   cpf: string
   rg: string
   isActive: boolean
+  phoneIsWhatsapp: boolean
   createdAt: string | Date
   updatedAt: string | Date
   deletedAt: string | Date

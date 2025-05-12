@@ -10,22 +10,27 @@ import {
   type UserFormProps,
 } from './types'
 import { queryClient } from '@/lib/tanstack-query'
+import { Checkbox } from '@/components/ui/checkbox'
 
 export const UserForm = (props: UserFormProps) => {
   const { onSubmit, initialValues } = props
 
-  const defaultFormValues = initialValues ?? {
-    name: '',
-    phone: '',
-    cpf: '',
-    rg: '',
-    email: '',
-    isActive: true,
-  }
+  const defaultFormValues =
+    initialValues ??
+    ({
+      name: '',
+      phone: '',
+      cpf: '',
+      rg: '',
+      email: '',
+      isActive: true,
+      phoneIsWhatsapp: false,
+    } as RegisterUserFormData)
 
   const {
     control,
     register,
+
     formState: { errors },
     watch,
     handleSubmit,
@@ -35,8 +40,6 @@ export const UserForm = (props: UserFormProps) => {
     resolver: zodResolver(registerUserSchema),
     defaultValues: defaultFormValues,
   })
-
-  console.log(watch())
 
   const onSubmitForm = async (data: RegisterUserFormData) => {
     await onSubmit(data)
@@ -69,15 +72,31 @@ export const UserForm = (props: UserFormProps) => {
         placeholder='Digite o e-mail'
         errorMessage={errors?.email?.message}
       />
-      <MaskField
-        control={control}
-        name='phone'
-        pattern='(00) 0 0000-0000'
-        inputMode='numeric'
-        label='Telefone'
-        placeholder='Informe o telefone'
-        errorMessage={errors?.phone?.message}
-      />
+      <div className='flex flex-col gap-2'>
+        <MaskField
+          control={control}
+          name='phone'
+          pattern='(00) 0 0000-0000'
+          inputMode='numeric'
+          label='Telefone'
+          placeholder='Informe o telefone'
+          errorMessage={errors?.phone?.message}
+        />
+
+        <div className='flex items-center space-x-2'>
+          <Checkbox
+            {...register('phoneIsWhatsapp')}
+            id='isWhatsapp'
+            checked={watch().phoneIsWhatsapp}
+          />
+          <label
+            htmlFor='isWhatsapp'
+            className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+          >
+            WhatsApp
+          </label>
+        </div>
+      </div>
 
       <div className='flex gap-4'>
         <MaskField

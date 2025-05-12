@@ -8,6 +8,7 @@ export const registerUserSchema = z.object({
   rg: rgValidator,
   email: z.string().email({ message: 'E-mail inválido' }),
   isActive: z.boolean().optional(),
+  phoneIsWhatsapp: z.boolean().optional(),
 })
 
 export type RegisterUserFormData = z.infer<typeof registerUserSchema>
