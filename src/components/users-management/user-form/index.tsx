@@ -2,7 +2,12 @@ import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { MaskField, SwitchField, TextField } from '@/components/fields'
+import {
+  MaskField,
+  SwitchField,
+  TextField,
+  CheckboxField,
+} from '@/components/fields'
 
 import {
   registerUserSchema,
@@ -10,7 +15,6 @@ import {
   type UserFormProps,
 } from './types'
 import { queryClient } from '@/lib/tanstack-query'
-import { Checkbox } from '@/components/ui/checkbox'
 
 export const UserForm = (props: UserFormProps) => {
   const { onSubmit, initialValues } = props
@@ -32,7 +36,6 @@ export const UserForm = (props: UserFormProps) => {
     register,
 
     formState: { errors },
-    watch,
     handleSubmit,
   } = useForm<RegisterUserFormData>({
     mode: 'onTouched',
@@ -83,19 +86,12 @@ export const UserForm = (props: UserFormProps) => {
           errorMessage={errors?.phone?.message}
         />
 
-        <div className='flex items-center space-x-2'>
-          <Checkbox
-            {...register('phoneIsWhatsapp')}
-            id='isWhatsapp'
-            checked={watch().phoneIsWhatsapp}
-          />
-          <label
-            htmlFor='isWhatsapp'
-            className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
-          >
-            WhatsApp
-          </label>
-        </div>
+        <CheckboxField
+          control={control}
+          name='phoneIsWhatsapp'
+          label='WhatsApp'
+          id='isWhatsapp'
+        />
       </div>
 
       <div className='flex gap-4'>
