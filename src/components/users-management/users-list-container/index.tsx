@@ -1,4 +1,4 @@
-import { ListFilter } from 'lucide-react'
+import { ListFilter, Search } from 'lucide-react'
 
 import { Button, Input } from '@/components/ui'
 import { UserCard } from '../user-card'
@@ -68,12 +68,17 @@ export const UsersListContainer = (props: UsersListContainerProps) => {
   return (
     <section className='mt-5 flex flex-col gap-5'>
       <div className='flex items-center gap-3'>
-        <form onSubmit={handleSubmit(onSubmit)} className='flex-1'>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex-1 relative'>
+          <Search
+            className='absolute top-1/2 left-3 transform -translate-y-1/2 text-muted-foreground'
+            size={16}
+          />
+
           <Input
             {...register('search')}
             type='search'
             placeholder='Buscar...'
-            className='w-full'
+            className='w-full h-10 pl-8'
           />
         </form>
         <Button variant='outline' rounded='full' size='icon'>

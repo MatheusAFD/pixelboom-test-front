@@ -22,7 +22,6 @@ export const useGetUsers = (params: UseGetUsersParams) => {
       return response
     },
     placeholderData: (prev) => prev,
-    staleTime: 300000,
   })
 
   const pagination = {

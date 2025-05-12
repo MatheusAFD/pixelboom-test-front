@@ -14,7 +14,6 @@ export const useGetDashboardStats = () => {
       return response
     },
     placeholderData: (prev) => prev,
-    staleTime: 300000,
   })
 
   return { ...queryData, data: queryData?.data }
