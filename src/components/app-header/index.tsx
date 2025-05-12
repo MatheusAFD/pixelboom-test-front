@@ -5,8 +5,9 @@ import {
   AvatarImage,
   Button,
   SidebarTrigger,
-} from '../ui'
-import { Container } from '../container'
+} from '@/components/ui'
+
+import { Container } from '@/components'
 
 export const AppHeader = () => {
   return (
