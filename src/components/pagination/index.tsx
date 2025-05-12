@@ -14,7 +14,7 @@ interface ListPaginationProps {
   limit: number
 }
 
-export function ListPagination({ total, limit }: ListPaginationProps) {
+export const ListPagination = ({ total, limit }: ListPaginationProps) => {
   const { page, handlePageChange } = useUrlFilters()
   const totalPages = Math.ceil(total / limit)
 

@@ -21,7 +21,7 @@ import { createUser } from '@/services/'
 import type { RegisterUserFormData } from '../user-form/types'
 import { queryClient } from '@/lib'
 
-export function CreateUserSheet(props: PropsWithChildren) {
+export const CreateUserSheet = (props: PropsWithChildren) => {
   const { children } = props
 
   const [isPending, startTransition] = useTransition()

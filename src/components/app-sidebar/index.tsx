@@ -18,7 +18,7 @@ import {
 import { NavLinks } from '../nav-links'
 import { Avatar, AvatarFallback } from '../ui/avatar'
 
-export function AppSidebar() {
+export const AppSidebar = () => {
   const menuItems = [
     {
       Icon: Activity,

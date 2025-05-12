@@ -25,9 +25,9 @@ interface UpdateUserSheetProps {
   userId: string | null
 }
 
-export function UpdateUserSheet(
+export const UpdateUserSheet = (
   props: PropsWithChildren<UpdateUserSheetProps>
-) {
+) => {
   const { userId, isOpen, onOpenChange, children } = props
 
   const [isPending, startTransition] = useTransition()
